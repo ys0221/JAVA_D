@@ -13,6 +13,7 @@ public class SubmarineClientPractice {
         Scanner scan = new Scanner(System.in);
         ArrayList<String> playernames = new ArrayList<>();
         ArrayList<Integer> playerpoints = new ArrayList<>();
+        ArrayList<Integer> playerWinRate = new ArrayList<>();
 
         System.out.println("플레이어 3명 이름 입력");
         for (int i = 0; i < 3; i++) {
@@ -26,16 +27,23 @@ public class SubmarineClientPractice {
             playerpoints.add(points);
         }
 
+        System.out.println("플레이어 3명 승률 입력");
+        for (int i = 0; i < 3; i++) {
+            Integer winRate = scan.nextInt();
+            playerWinRate.add(winRate);
+        }
+
+
         SubmaineClientWinnerGUI submaineClientWinnerGUI = new SubmaineClientWinnerGUI();
         submaineClientWinnerGUI.setVisible(true);
 
         SubmarineClientLoserGUI submarineClientLoserGUI = new SubmarineClientLoserGUI();
         submarineClientLoserGUI.setVisible(true);
 
-        submaineClientWinnerGUI.getRank(playernames,playerpoints);
+        submaineClientWinnerGUI.getRank(playernames,playerpoints,playerWinRate);
         submaineClientWinnerGUI.setVisible(true);
 
-        submarineClientLoserGUI.getRank(playernames,playerpoints);
+        submarineClientLoserGUI.getRank(playernames,playerpoints,playerWinRate);
         submarineClientLoserGUI.setVisible(true);
 
 
@@ -46,6 +54,10 @@ public class SubmarineClientPractice {
         int firstScore = submaineClientWinnerGUI.getFirstScore();
         int secondScore = submaineClientWinnerGUI.getSecondScore();
         int thirdScore = submaineClientWinnerGUI.getThirdScore();
+
+        int firstWinRate = submaineClientWinnerGUI.getFirstScore();
+        int secondWinRate = submaineClientWinnerGUI.getSecondScore();
+        int thirdWinRate = submaineClientWinnerGUI.getThirdScore();
 
     }
 }

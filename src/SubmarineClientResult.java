@@ -5,12 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SubmarineClientResult extends JFrame {
-    private String First;
-    private String Second;
-    private String Third;
-    private int first_score;
-    private int second_score;
-    private int third_score;
+    private String First, Second, Third;
+    private int first_score, second_score, third_score;
+    private int first_winRate, second_winRate, third_winRate;
+
 
     public SubmarineClientResult() {
         setTitle("Result");
@@ -20,13 +18,16 @@ public class SubmarineClientResult extends JFrame {
     }
 
     // 1, 2, 3등을 받는다.
-    public void showResult(String First, String Second, String Third, int score1, int score2, int score3) {
+    public void showResult(String First, String Second, String Third, int score1, int score2, int score3, int winRate1, int winRate2, int winRate3) {
         this.First = First;
         this.Second = Second;
         this.Third = Third;
         this.first_score = score1;
         this.second_score = score2;
         this.third_score = score3;
+        this.first_winRate = winRate1;
+        this.second_winRate = winRate2;
+        this.third_winRate = winRate3;
 
         // 메인 패널 설정
         JPanel mainPanel = new JPanel(new GridBagLayout());
@@ -59,7 +60,7 @@ public class SubmarineClientResult extends JFrame {
         gbc.gridx = 1;
         mainPanel.add(new JLabel(String.valueOf(first_score), JLabel.CENTER), gbc); // 정수를 문자열로 변환한다.
         gbc.gridx = 2;
-        mainPanel.add(new JLabel("17%", JLabel.CENTER), gbc);
+        mainPanel.add(new JLabel(String.valueOf(first_winRate) + "%", JLabel.CENTER), gbc);
 
         // 2등 플레이어 정보
         gbc.gridy = 3;
@@ -68,7 +69,7 @@ public class SubmarineClientResult extends JFrame {
         gbc.gridx = 1;
         mainPanel.add(new JLabel(String.valueOf(second_score), JLabel.CENTER), gbc);
         gbc.gridx = 2;
-        mainPanel.add(new JLabel("14%", JLabel.CENTER), gbc);
+        mainPanel.add(new JLabel(String.valueOf(second_winRate) + "%", JLabel.CENTER), gbc);
 
         // 3등 플레이어 정보
         gbc.gridy = 4;
@@ -77,7 +78,7 @@ public class SubmarineClientResult extends JFrame {
         gbc.gridx = 1;
         mainPanel.add(new JLabel(String.valueOf(third_score), JLabel.CENTER), gbc);
         gbc.gridx = 2;
-        mainPanel.add(new JLabel("14%", JLabel.CENTER), gbc);
+        mainPanel.add(new JLabel(String.valueOf(third_winRate) + "%", JLabel.CENTER), gbc);
 
         // 버튼 패널 설정
         JPanel buttonPanel = new JPanel(new FlowLayout());
@@ -88,20 +89,19 @@ public class SubmarineClientResult extends JFrame {
         retryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // 확인 버튼 클릭 시 동작
-                // 레디 창으로 돌아간다.
+                // 다시하기 버튼 클릭 시 동작
                 dispose(); // 현재 창 닫기
+                // 레디 창으로 돌아간다.
             }
         });
 
         closeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // 다시하기 버튼 클릭 시 동작
+                // 닫기 버튼 클릭 시 동작
                 SubmarineClientCancelGUI cancel = new SubmarineClientCancelGUI();
                 cancel.warning();
                 cancel.setVisible(true);
-                // SubmaineClientWinnerGUI 클래스를 다시 열도록 설정할 수 있습니다.
             }
         });
 
