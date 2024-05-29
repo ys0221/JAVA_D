@@ -1,3 +1,4 @@
+import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
@@ -10,6 +11,7 @@ import java.util.Comparator;
 public class SubmaineClientWinnerGUI extends JFrame {
     private String First, Second, Third;
     private int first_score, second_score, third_score;
+    private int first_winRate, second_winRate, third_winRate;
     private LineBorder line = new LineBorder(Color.black, 1, true);
 
     public SubmaineClientWinnerGUI() {
@@ -19,10 +21,12 @@ public class SubmaineClientWinnerGUI extends JFrame {
         setLayout(new GridBagLayout());
     }
 
-    public void getRank(ArrayList<String> playernames, ArrayList<Integer> playerpoints) {
+    public void getRank(ArrayList<String> playernames, ArrayList<Integer> playerpoints, ArrayList<Integer> playerWinRate) {
         // 원본 데이터의 영햐을 받지 않기 위해 데이터를 복사한다
         ArrayList<String> namesCopy = new ArrayList<>(playernames);
         ArrayList<Integer> pointsCopy = new ArrayList<>(playerpoints);
+        ArrayList<Integer> ratesCopy = new ArrayList<>(playerWinRate);
+
 
         int player1points = pointsCopy.get(0);
         int player2points = pointsCopy.get(1);
@@ -32,30 +36,39 @@ public class SubmaineClientWinnerGUI extends JFrame {
         // 1등 지정
         if (pointsCopy.get(0) == player1points) {
             First = namesCopy.get(0);
+            first_winRate = ratesCopy.get(0);
         } else if (pointsCopy.get(0) == player2points) {
             First = namesCopy.get(1);
+            first_winRate = ratesCopy.get(1);
         } else {
             First = namesCopy.get(2);
+            first_winRate = ratesCopy.get(2);
         }
         first_score = pointsCopy.get(0);
 
         // 2등 지정
         if (pointsCopy.get(1) == player1points) {
             Second = namesCopy.get(0);
+            second_winRate = ratesCopy.get(0);
         } else if (pointsCopy.get(1) == player2points) {
             Second = namesCopy.get(1);
+            second_winRate = ratesCopy.get(1);
         } else {
             Second = namesCopy.get(2);
+            second_winRate = ratesCopy.get(2);
         }
         second_score = pointsCopy.get(1);
 
         // 3등 지정
         if (pointsCopy.get(2) == player1points) {
             Third = namesCopy.get(0);
+            third_winRate = ratesCopy.get(0);
         } else if (pointsCopy.get(2) == player2points) {
             Third = namesCopy.get(1);
+            third_winRate = ratesCopy.get(1);
         } else {
             Third = namesCopy.get(2);
+            third_winRate = ratesCopy.get(2);
         }
         third_score = pointsCopy.get(2);
 
@@ -141,7 +154,7 @@ public class SubmaineClientWinnerGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // SubmarineClientResult 객체 생성 및 결과 표시
                 SubmarineClientResult resultGUI = new SubmarineClientResult();
-                resultGUI.showResult(First, Second, Third, first_score, second_score, third_score);
+                resultGUI.showResult(First, Second, Third, first_score, second_score, third_score, first_winRate, second_winRate, third_winRate);
                 dispose(); // 등수 표시 창 닫기
             }
         });
@@ -181,5 +194,17 @@ public class SubmaineClientWinnerGUI extends JFrame {
 
     public int getThirdScore() {
         return third_score;
+    }
+    // 1, 2, 3등 플레이어의 승률을 반환하는 함수들
+    public int getFirstWinRate() {
+        return first_winRate;
+    }
+
+    public int getSecondWinRate() {
+        return second_winRate;
+    }
+
+    public int getthirdWinRate() {
+        return third_winRate;
     }
 }

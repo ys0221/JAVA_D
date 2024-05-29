@@ -55,7 +55,7 @@ public class SubmarineClientCancelGUI extends JFrame {
         retryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
+                dispose(); // 레디 창으로 돌아가야함
             }
         });
 
