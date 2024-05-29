@@ -29,7 +29,7 @@ public class SubmarineCancelGUI extends JFrame {
         cancelPanel.add(cancelLabel, gbc);
 
         // 확인 버튼
-        JButton submitButton = new JButton("네");
+        JButton submitButton = new JButton("확인");
         gbc.gridx = 0;
         gbc.gridy = 1;
         cancelPanel.add(submitButton, gbc);

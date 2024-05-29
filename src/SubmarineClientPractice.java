@@ -35,6 +35,10 @@ public class SubmarineClientPractice {
         submaineClientWinnerGUI.getRank(playernames,playerpoints);
         submaineClientWinnerGUI.setVisible(true);
 
+        submarineClientLoserGUI.getRank(playernames,playerpoints);
+        submarineClientLoserGUI.setVisible(true);
+
+
         String firstName = submaineClientWinnerGUI.getFirst();
         String secondName = submaineClientWinnerGUI.getSecond();
         String thirdName = submaineClientWinnerGUI.getThird();
@@ -42,9 +46,6 @@ public class SubmarineClientPractice {
         int firstScore = submaineClientWinnerGUI.getFirstScore();
         int secondScore = submaineClientWinnerGUI.getSecondScore();
         int thirdScore = submaineClientWinnerGUI.getThirdScore();
-
-        submarineClientLoserGUI.getRank(playernames,playerpoints);
-        submarineClientLoserGUI.setVisible(true);
 
     }
 }
