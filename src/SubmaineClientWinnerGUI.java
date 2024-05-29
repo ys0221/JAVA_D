@@ -18,7 +18,12 @@ public class SubmaineClientWinnerGUI extends JFrame {
         setTitle("WINNER");
         setSize(500, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridBagLayout());
+
+        // 배경 설정
+        SubmarineClientBackGround backGroundPanel = new SubmarineClientBackGround("/Users/User/Desktop/2024_1학기/KakaoTalk_Photo_2024-05-29-16-50-10.png");
+        setContentPane(backGroundPanel);
+        backGroundPanel.setLayout(new GridBagLayout());
+        // setLayout(new GridBagLayout());
     }
 
     public void getRank(ArrayList<String> playernames, ArrayList<Integer> playerpoints, ArrayList<Integer> playerWinRate) {
@@ -158,6 +163,7 @@ public class SubmaineClientWinnerGUI extends JFrame {
                 dispose(); // 등수 표시 창 닫기
             }
         });
+
 
         mainPanel.add(submitButton, gbc);
         add(mainPanel);
