@@ -96,7 +96,6 @@ public class SubmaineClientWinnerGUI extends JFrame {
         thirdPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
         thirdPanel.setBackground(Color.WHITE);
 
-
         /*
         // 플레이어 정보 라벨
         JLabel firstLabel = new JLabel("1. " + First, JLabel.CENTER);

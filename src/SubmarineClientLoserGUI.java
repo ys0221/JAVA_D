@@ -103,7 +103,7 @@ public class SubmarineClientLoserGUI extends JFrame {
         firstPanel.add(firstLabel);
         secondPanel.add(secondLabel);
         thirdPanel.add(thirdLabel);
-        
+
          */
 
         // 플레이어 정보 텍스트 필드
